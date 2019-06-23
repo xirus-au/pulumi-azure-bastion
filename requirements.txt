@@ -1,0 +1,2 @@
+pulumi==0.17.18
+pulumi_azure==0.19.0
