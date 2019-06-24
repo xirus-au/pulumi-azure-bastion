@@ -8,6 +8,7 @@ import pulumi
 from pulumi import Input
 from pulumi_azure import network, core
 
+
 class Bastion(pulumi.ComponentResource):
     """
     Creates a good-practice Azure Bastion service in an existing vnet
@@ -128,6 +129,9 @@ class Bastion(pulumi.ComponentResource):
                                                    "location": location,
                                                    "bastionServicesVnetName": vnet_name,
                                                    "bastionServicesSubnetName": self.subnet.name
+                                               },
+                                               __opts__={
+                                                   "dependsOn": [self.subnet.id]
                                                }
                                                )
 
