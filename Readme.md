@@ -31,7 +31,6 @@ If `pulumi preview` looks okay, then you can follow this up with `pulumi update`
 ## Destroy the infrastructure
 
 When done testing this example please consider tearing the infrastructure down to save cost.
+The nature of ARM template deployments is that we don't know what they have deployed, and as such we can't use pulumi to destroy the stack in this case, mainly because this specific stack or the combination of resources deployed, tries to delete the subnet before it deletes the resources in the subnet and fails.
 
-```
-pulumi destroy
-```
+You can use the Azure Portal to delete the created Resource Group or the CLI / PowerShell.
